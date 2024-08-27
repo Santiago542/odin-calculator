@@ -51,14 +51,14 @@ body {
     }
 }
 
-.number, .operator, .clear, .sign, .percent {
+.number, .operator, .clear, .sign, .percent, .decimal {
     height: 114.4px;
     width: 131.5px;
     font-size: 40px;
     border-radius: 8px;
 }
 
-.number {
+.number, .decimal {
     background-color: lightblue;
 }
 
