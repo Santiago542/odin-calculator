@@ -51,7 +51,7 @@ body {
     }
 }
 
-.number, .operator, .clear, .sign, .percent, .decimal {
+.number, .operator, .clear, .sign, .percent, .decimal, .equal {
     height: 114.4px;
     width: 131.5px;
     font-size: 40px;
@@ -62,7 +62,7 @@ body {
     background-color: lightblue;
 }
 
-.operator {
+.operator, .equal {
     background-color: lightgreen;
 }
 
