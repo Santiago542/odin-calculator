@@ -20,8 +20,8 @@ function roundNumber(number) {
 function updateDisplay() {
     const display = document.querySelector("#display");
     display.innerText = displayValue;
-    if(displayValue.length > 15) {
-        display.innerText = displayValue.substring(0, 15);
+    if(displayValue.length > 11) {
+        display.innerText = displayValue.substring(0, 11);
     }
 }
 
@@ -127,6 +127,14 @@ function inputPercent(number) {
     displayValue = (number / 100).toString();
 }
 
+function inputBackspace() {
+    if(displayValue.length <= 1) {
+        displayValue = "0";
+    } else {
+        displayValue = displayValue.substring(0, displayValue.length - 1);
+    }
+}
+
 function clickButtons() {
     const buttons = document.querySelectorAll("button");
 
@@ -150,6 +158,9 @@ function clickButtons() {
             } else if(button.classList.contains("percent")) {
                 inputPercent(displayValue);
                 updateDisplay();
+            } else if(button.classList.contains("backspace")) {
+                inputBackspace();
+                updateDisplay();
             } else if(button.classList.contains("clear")) {
                 clearDisplay();
                 updateDisplay();
@@ -164,6 +175,12 @@ let firstOperator = null;
 let secondOperator = null;
 let result = null;
 let displayValue = "0";
+
+window.addEventListener("keydown", (e) => {
+    const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    key.click();
+    console.log(e.keyCode);
+})
 
 updateDisplay();
 
