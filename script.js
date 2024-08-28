@@ -50,16 +50,24 @@ function inputOperator(operator) {
         secondOperator = operator;
         secondNumber = displayValue;
         result = operate(Number(firstNumber), Number(secondNumber), firstOperator);
-        displayValue = result.toString();
-        firstNumber = displayValue;
-        result = null;
+        if(result === "Error") {
+            displayValue = "Error";
+        } else {
+            displayValue = result.toString();
+            firstNumber = displayValue;
+            result = null;
+        }
     } else if(firstOperator != null && secondOperator != null) {
         secondNumber = displayValue;
         result = operate(Number(firstNumber), Number(secondNumber), secondOperator);
-        secondOperator = operator;
-        displayValue = result.toString();
-        firstNumber = displayValue;
-        result = null;
+        if(result === "Error") {
+            displayValue = "Error";
+        } else {
+            secondOperator = operator;
+            displayValue = result.toString();
+            firstNumber = displayValue;
+            result = null;
+        }
     } else { 
         firstOperator = operator;
         firstNumber = displayValue;
