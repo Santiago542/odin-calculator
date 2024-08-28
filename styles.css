@@ -31,7 +31,7 @@ body {
     border: 1px solid black;
     border-radius: 16px;
     background-color: lightgray;
-    font-size: 60px;
+    font-size: 80px;
 }
 
 #buttons {
@@ -46,12 +46,12 @@ body {
     border: 1px solid black;
     border-radius: 16px;
     background-color: yellow;
-    #long-width {
+    /* #long-width {
         width: 271px;
-    }
+    } */
 }
 
-.number, .operator, .clear, .sign, .percent, .decimal, .equal {
+.number, .operator, .clear, .sign, .percent, .decimal, .equal, .backspace {
     height: 114.4px;
     width: 131.5px;
     font-size: 40px;
@@ -81,4 +81,13 @@ body {
 
 .clear:hover, .sign:hover, .percent:hover {
     background-color: rgb(172, 94, 94);
+}
+
+.backspace {
+    font-size: 70px;
+    background-color: lightsalmon;
+}
+
+.backspace:hover {
+    background-color: rgb(126, 79, 79)
 }
