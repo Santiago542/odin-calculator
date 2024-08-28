@@ -13,6 +13,10 @@ function operate(firstNumber, secondNumber, operator) {
     }
 }
 
+function roundNumber(number) {
+    return Math.round(number * 1000) / 1000;
+}
+
 function updateDisplay() {
     const display = document.querySelector("#display");
     display.innerText = displayValue;
@@ -52,7 +56,7 @@ function inputOperator(operator) {
         if(result === "Error") {
             displayValue = "Error";
         } else {
-            displayValue = result.toString();
+            displayValue = roundNumber(result).toString();
             firstNumber = displayValue;
             result = null;
         }
@@ -63,7 +67,7 @@ function inputOperator(operator) {
             displayValue = "Error";
         } else {
             secondOperator = operator;
-            displayValue = result.toString();
+            displayValue = roundNumber(result).toString();
             firstNumber = displayValue;
             result = null;
         }
@@ -81,7 +85,7 @@ function inputEqual() {
         if(result === "Error") {
             displayValue = "Error";
         } else {
-            displayValue = result.toString();
+            displayValue = roundNumber(result).toString();
             firstNumber = displayValue;
             secondNumber = null;
             firstOperator = null;
@@ -94,7 +98,7 @@ function inputEqual() {
         if(result === "Error") {
             displayValue = "Error";
         } else {
-            displayValue = result.toString();
+            displayValue = roundNumber(result).toString();
             firstNumber = displayValue;
             secondNumber = null;
             firstOperator = null;
@@ -106,6 +110,14 @@ function inputEqual() {
 
 function inputSign(number) {
     displayValue = (number * -1).toString();
+}
+
+function inputDecimal(dot) {
+    if(displayValue === firstNumber || displayValue === secondNumber) {
+        displayValue = "0" + dot;
+    } else if(!displayValue.includes(dot)) {
+        displayValue += dot;
+    }
 }
 
 function inputPercent(number) {
@@ -139,6 +151,9 @@ function clickButtons() {
                 updateDisplay();
             } else if(button.classList.contains("decimal")) {
                 // Implementing at the end
+                inputDecimal(button.value);
+
+                updateDisplay();
             } else if(button.classList.contains("percent")) {
                 inputPercent(displayValue);
 
