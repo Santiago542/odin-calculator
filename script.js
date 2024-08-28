@@ -14,13 +14,15 @@ function operate(firstNumber, secondNumber, operator) {
 }
 
 function roundNumber(number) {
-    return Math.round(number * 1000) / 1000;
+    return Math.round(number * 1000000) / 1000000;
 }
 
 function updateDisplay() {
     const display = document.querySelector("#display");
     display.innerText = displayValue;
-    console.log(firstNumber, firstOperator, secondNumber, secondOperator);
+    if(displayValue.length > 15) {
+        display.innerText = displayValue.substring(0, 15);
+    }
 }
 
 function clearDisplay() {
@@ -76,6 +78,7 @@ function inputOperator(operator) {
         firstNumber = displayValue;
     }
 }
+
 function inputEqual() {
     if(firstOperator === null) {
         displayValue = displayValue;
@@ -131,36 +134,24 @@ function clickButtons() {
         button.addEventListener("click", () => {
             if(button.classList.contains("number")) {
                 inputNumber(button.value);
-                // Debugging
-                console.log(firstNumber, firstOperator, secondNumber, secondOperator);
-
                 updateDisplay();
             } else if(button.classList.contains("operator")) {
                 inputOperator(button.value);
-                // Debugging
-                console.log(firstNumber, firstOperator, secondNumber, secondOperator);
-
                 updateDisplay();
             } else if(button.classList.contains("equal")) {
                 inputEqual();
-                
                 updateDisplay();
             } else if(button.classList.contains("sign")) {
                 inputSign(displayValue);
-
                 updateDisplay();
             } else if(button.classList.contains("decimal")) {
-                // Implementing at the end
                 inputDecimal(button.value);
-
                 updateDisplay();
             } else if(button.classList.contains("percent")) {
                 inputPercent(displayValue);
-
                 updateDisplay();
             } else if(button.classList.contains("clear")) {
                 clearDisplay();
-
                 updateDisplay();
             }
         });
