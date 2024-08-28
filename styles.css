@@ -56,16 +56,29 @@ body {
     width: 131.5px;
     font-size: 40px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .number, .decimal {
     background-color: lightblue;
 }
 
+.number:hover, .decimal:hover {
+    background-color: rgb(133, 165, 175);
+}
+
 .operator, .equal {
     background-color: lightgreen;
 }
 
+.operator:hover, .equal:hover {
+    background-color: rgb(107, 170, 107);
+}
+
 .clear, .sign, .percent {
     background-color: lightcoral;
+}
+
+.clear:hover, .sign:hover, .percent:hover {
+    background-color: rgb(172, 94, 94);
 }
