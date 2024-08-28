@@ -179,7 +179,6 @@ let displayValue = "0";
 window.addEventListener("keydown", (e) => {
     const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
     key.click();
-    console.log(e.keyCode);
 })
 
 updateDisplay();
