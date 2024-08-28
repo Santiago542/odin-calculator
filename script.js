@@ -26,7 +26,6 @@ function clearDisplay() {
     secondOperator = null;
     result = null;
     displayValue = "0";
-    updateDisplay();
 }
 
 function inputNumber(number) {
@@ -102,8 +101,15 @@ function inputEqual() {
             secondOperator = null;
             result = null;
         }
-        
     }
+}
+
+function inputSign(number) {
+    displayValue = (number * -1).toString();
+}
+
+function inputPercent(number) {
+    displayValue = (number / 100).toString();
 }
 
 function clickButtons() {
@@ -128,13 +134,19 @@ function clickButtons() {
                 
                 updateDisplay();
             } else if(button.classList.contains("sign")) {
-                // Implementing at the end
+                inputSign(displayValue);
+
+                updateDisplay();
             } else if(button.classList.contains("decimal")) {
                 // Implementing at the end
             } else if(button.classList.contains("percent")) {
-                // Implementing at the end
+                inputPercent(displayValue);
+
+                updateDisplay();
             } else if(button.classList.contains("clear")) {
                 clearDisplay();
+
+                updateDisplay();
             }
         });
     });
